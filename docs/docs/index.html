@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genki</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --verde: #384a28;
+    --beige: #f5f1e8;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--beige);
+    color: #333;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* HERO */
+header {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773') center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(8px);
+    padding: 50px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+}
+
+/* BOTON */
+.btn-buy {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 35px;
+    background: linear-gradient(135deg, #384a28, #4f6b3c);
+    color: white;
+    text-decoration: none;
+    border-radius: 40px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(56,74,40, 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(56,74,40, 0); }
+}
+
+/* SECCIONES */
+.section {
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* GLASS */
+.glass {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 15px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 15px;
+}
+
+.grid img {
+    width: 100%;
+    border-radius: 12px;
+    transition: 0.4s;
+}
+
+.grid img:hover {
+    transform: scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="overlay">
+        <h1>Genki</h1>
+        <p>Equilibrá tu <i>energía</i>, transformá tu <i>bienestar</i></p>
+        <a href="producto.html" class="btn-buy">Comprar ahora</a>
+    </div>
+</header>
+
+<section class="section">
+    <h2>Tu energía, en equilibrio</h2>
+    <p>
+        Genki es un espacio de reconexión, donde acompañamos tu bienestar
+        a través de la energía y el equilibrio.
+    </p>
+</section>
+
+<section class="section">
+    <div class="grid">
+        <img src="zapper1.JPG">
+        <img src="zapper2.JPG">
+        <img src="zapper3.jpg">
+    </div>
+</section>
+
+<section class="section">
+    <h2>Por qué elegir Genki</h2>
+    <div class="glass">✨ Ritual diario de bienestar</div>
+    <div class="glass">🌿 Conexión simple y natural</div>
+    <div class="glass">🧘‍♀️ Energía y equilibrio</div>
+</section>
+
+<section class="section">
+    <h2>Volvé a tu equilibrio</h2>
+    <p>Un momento para vos puede cambiar tu día.</p>
+</section>
+
+<script>
+const sections = document.querySelectorAll('.section');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+        }
+    });
+});
+
+sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
