@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zapper Genki</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --verde: #384a28;
+    --beige: #f5f1e8;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--beige);
+    color: #333;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* CONTENEDOR */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+/* PRODUCTO */
+.product {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+}
+
+/* GALERÍA */
+.gallery {
+    max-width: 400px;
+}
+
+#mainImage {
+    width: 100%;
+    border-radius: 12px;
+    transition: 0.4s;
+}
+
+#mainImage:hover {
+    transform: scale(1.05);
+}
+
+.thumbnails {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.thumbnails img {
+    width: 60px;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.thumbnails img:hover {
+    opacity: 1;
+}
+
+/* INFO */
+.info {
+    max-width: 500px;
+}
+
+.price {
+    font-size: 26px;
+    color: var(--verde);
+    margin: 15px 0;
+}
+
+/* BOTÓN */
+.btn-buy {
+    display: inline-block;
+    padding: 15px 35px;
+    background: linear-gradient(135deg, #384a28, #4f6b3c);
+    color: white;
+    text-decoration: none;
+    border-radius: 40px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(56,74,40, 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(56,74,40, 0); }
+}
+
+/* GLASS */
+.glass {
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 12px;
+    margin: 10px 0;
+}
+
+/* SECCIONES */
+.section {
+    margin-top: 60px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="product">
+
+        <!-- GALERÍA -->
+        <div class="gallery">
+
+            <img id="mainImage" src="zapper1.JPG">
+
+            <div class="thumbnails">
+                <img src="zapper1.JPG" onclick="changeImage(this)">
+                <img src="zapper2.JPG" onclick="changeImage(this)">
+                <img src="zapper3.jpg" onclick="changeImage(this)">
+                <img src="zapper4.jpg" onclick="changeImage(this)">
+                <img src="zapper5.jpg" onclick="changeImage(this)">
+            </div>
+
+        </div>
+
+        <!-- INFO -->
+        <div class="info">
+
+            <h1>Zapper Genki</h1>
+
+            <p style="color:#777;">Ritual diario de energía y equilibrio</p>
+
+            <p>
+                Un dispositivo pensado para acompañar tu <i>energía</i>,
+                tu <i>equilibrio</i> y tu bienestar diario.
+                Su objetivo principal acompañarte en tu camino hacia una mayor vitalidad y claridad.
+            </p>
+
+            <div class="price">$300,000</div>
+
+            <a href="https://wa.me/5492995014829" class="btn-buy">
+                Comprar ahora
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- USO -->
+    <div class="section">
+        <h2>Tu momento Genki</h2>
+
+        <div class="glass">1. Elegí un espacio tranquilo</div>
+        <div class="glass">2. Sostené los electrodos</div>
+        <div class="glass">3. Relajate y conectá</div>
+        <div class="glass">4. Incorporalo a tu rutina</div>
+    </div>
+
+    <!-- CONFIANZA -->
+    <div class="section">
+        <h2>Recomendaciones</h2>
+
+        <div class="glass">Uso orientado al bienestar general</div>
+        <div class="glass">No utilizar con marcapaso/aparato electrónico en el cuerpo o en embarazadas</div>
+    </div>
+
+</div>
+
+<script>
+function changeImage(element) {
+    document.getElementById("mainImage").src = element.src;
+}
+</script>
+
+</body>
+</html>
